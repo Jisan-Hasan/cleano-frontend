@@ -39,74 +39,74 @@ export const sidebarItems = (role: string) => {
             key: `/${role}/dashboard`,
         },
         {
-            label: <Link href={`/${role}/categories`}>Category</Link>,
+            label: <Link href={`/${role}/category`}>Category</Link>,
             icon: <TableOutlined />,
-            key: `/${role}/categories`,
+            key: `/${role}/category`,
         },
         {
-            label: <Link href={`/${role}/services`}>Services</Link>,
+            label: <Link href={`/${role}/service`}>Services</Link>,
             icon: <TableOutlined />,
-            key: `/${role}/services`,
+            key: `/${role}/service`,
         },
         {
-            label: "Bookings",
-            key: "bookings",
+            label: "Booking",
+            key: "booking",
             icon: <AppstoreOutlined />,
             children: [
                 {
                     label: (
-                        <Link href={`/${role}/bookings/all`}>All Bookings</Link>
+                        <Link href={`/${role}/booking/all`}>All Bookings</Link>
                     ),
-                    key: `/${role}/bookings/all`,
+                    key: `/${role}/booking/all`,
                     icon: <TableOutlined />,
                 },
                 {
                     label: (
-                        <Link href={`/${role}/bookings/pending`}>
+                        <Link href={`/${role}/booking/pending`}>
                             Pending Bookings
                         </Link>
                     ),
-                    key: `/${role}/bookings/pending`,
+                    key: `/${role}/booking/pending`,
                     icon: <TableOutlined />,
                 },
                 {
                     label: (
-                        <Link href={`/${role}/bookings/confirmed`}>
+                        <Link href={`/${role}/booking/confirmed`}>
                             Confirmed Bookings
                         </Link>
                     ),
-                    key: `/${role}/bookings/confirmed`,
+                    key: `/${role}/booking/confirmed`,
                     icon: <TableOutlined />,
                 },
                 {
                     label: (
-                        <Link href={`/${role}/bookings/completed`}>
+                        <Link href={`/${role}/booking/completed`}>
                             Completed Bookings
                         </Link>
                     ),
-                    key: `/${role}/bookings/completed`,
+                    key: `/${role}/booking/completed`,
                     icon: <TableOutlined />,
                 },
                 {
                     label: (
-                        <Link href={`/${role}/bookings/rejected`}>
+                        <Link href={`/${role}/booking/rejected`}>
                             Rejected Bookings
                         </Link>
                     ),
-                    key: `/${role}/bookings/rejected`,
+                    key: `/${role}/booking/rejected`,
                     icon: <TableOutlined />,
                 },
             ],
         },
         {
-            label: <Link href={`/${role}/blogs`}>Blogs</Link>,
+            label: <Link href={`/${role}/blog`}>Blogs</Link>,
             icon: <TableOutlined />,
-            key: `/${role}/blogs`,
+            key: `/${role}/blog`,
         },
         {
-            label: <Link href={`/${role}/faqs`}>FAQ</Link>,
+            label: <Link href={`/${role}/faq`}>FAQ</Link>,
             icon: <TableOutlined />,
-            key: `/${role}/faqs`,
+            key: `/${role}/faq`,
         },
     ];
 

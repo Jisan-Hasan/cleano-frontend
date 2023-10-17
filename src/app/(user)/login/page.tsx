@@ -30,6 +30,8 @@ const LoginPage = () => {
                 const tokenData = decodedToken(res?.accessToken || "{}");
                 if (tokenData?.role === "super_admin") {
                     router.push("/super_admin");
+                } else if (tokenData?.role === "admin") {
+                    router.push("/admin");
                 } else {
                     router.push("/");
                 }

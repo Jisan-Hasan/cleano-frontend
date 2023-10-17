@@ -33,7 +33,7 @@ const FormInput = ({
 
     return (
         <>
-            {label ? label : null}
+            <div className="mb-1">{label ? label : null}</div>
             <Controller
                 control={control}
                 name={name}
