@@ -7,10 +7,8 @@ import FormSelectField from "@/components/Forms/FormSelectField";
 import FormTextArea from "@/components/Forms/FormTextArea";
 import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
-import {
-    useGetServiceQuery,
-    useUpdateServiceMutation,
-} from "@/redux/api/serviceApi";
+import { useGetServiceQuery, useUpdateServiceMutation } from "@/redux/api/serviceApi";
+import { useGetUserQuery, useUpdateUserMutation } from "@/redux/api/userApi";
 import { createServiceSchema } from "@/schemas/service";
 import { getUserInfo } from "@/services/auth.service";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -48,8 +46,7 @@ const EditServicePage = ({ params }: IDProps) => {
     const defaultValues = {
         name: data?.name || "",
         price: data?.price || "",
-        availability:
-            data?.availability == true ? "Available" : "Not Available",
+        availability: data?.availability || "",
         description: data?.description || "",
         categoryId: data?.categoryId || "",
     };

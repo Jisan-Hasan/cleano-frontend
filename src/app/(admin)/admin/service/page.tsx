@@ -12,7 +12,6 @@ import { getUserInfo } from "@/services/auth.service";
 import {
     DeleteOutlined,
     EditOutlined,
-    EyeOutlined,
     ReloadOutlined,
 } from "@ant-design/icons";
 import { Button, Input, message } from "antd";
@@ -73,13 +72,6 @@ const ServicePage = () => {
             render: function (data: any) {
                 return (
                     <>
-                        <Link href={`/admin/service/details/${data?.id}`}>
-                            <Button
-                                type="primary"
-                            >
-                                <EyeOutlined />
-                            </Button>
-                        </Link>
                         <Link href={`/admin/service/edit/${data?.id}`}>
                             <Button
                                 style={{
