@@ -16,6 +16,7 @@ import {
     ReloadOutlined,
 } from "@ant-design/icons";
 import { Button, Input, message } from "antd";
+import dayjs from "dayjs";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -60,21 +61,26 @@ const ServicePage = () => {
             sorter: true,
         },
         {
+            title: "Updated At",
+            dataIndex: "updatedAt",
+            render: function (data: any) {
+                return data && dayjs(data).format("MMM D, YYYY hh:mm A");
+            },
+            sorter: true,
+        },
+        {
             title: "Action",
             render: function (data: any) {
                 return (
                     <>
-                        <Link href={`/admin/category/edit/${data?.id}`}>
+                        <Link href={`/admin/service/details/${data?.id}`}>
                             <Button
-                                style={{
-                                    margin: "0px 5px",
-                                }}
                                 type="primary"
                             >
                                 <EyeOutlined />
                             </Button>
                         </Link>
-                        <Link href={`/admin/category/edit/${data?.id}`}>
+                        <Link href={`/admin/service/edit/${data?.id}`}>
                             <Button
                                 style={{
                                     margin: "0px 5px",
