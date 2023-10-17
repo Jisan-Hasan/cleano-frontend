@@ -1,5 +1,5 @@
 "use client";
-
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar/Navbar";
 import Contents from "@/components/ui/Contents";
 import SideBar from "@/components/ui/Sidebar";
@@ -29,4 +29,4 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export default DashboardLayout;
+export default dynamic(() => Promise.resolve(DashboardLayout), { ssr: false });

@@ -29,7 +29,7 @@ const LoginPage = () => {
                 message.success(res?.message || "Login Successful");
                 const tokenData = decodedToken(res?.accessToken || "{}");
                 if (tokenData?.role === "super_admin") {
-                    router.push("/super_admin/profile");
+                    router.push("/super_admin");
                 } else {
                     router.push("/");
                 }

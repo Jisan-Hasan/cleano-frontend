@@ -1,11 +1,7 @@
 import {
     AppstoreOutlined,
-    CreditCardOutlined,
-    FileTextOutlined,
     ProfileOutlined,
-    ScheduleOutlined,
     TableOutlined,
-    ThunderboltOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import Link from "next/link";
@@ -18,10 +14,8 @@ export const sidebarItems = (role: string) => {
             icon: <ProfileOutlined />,
             children: [
                 {
-                    label: (
-                        <Link href={`/${role}/profile`}>Account Profile</Link>
-                    ),
-                    key: `/${role}/profile`,
+                    label: <Link href={`/${role}`}>Account Profile</Link>,
+                    key: `/${role}`,
                     icon: <TableOutlined />,
                 },
                 {
@@ -119,13 +113,11 @@ export const sidebarItems = (role: string) => {
     const superAdminSidebarItems: MenuProps["items"] = [
         ...defaultSidebarItems,
         {
-            label: <Link href={`/${role}/admin`}>Manage User</Link>,
+            label: <Link href={`/${role}/manage-user`}>Manage User</Link>,
             icon: <TableOutlined />,
-            key: `/${role}/user`,
+            key: `/${role}/manage-user`,
         },
     ];
-
-
 
     if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
     else if (role === USER_ROLE.ADMIN) return adminSidebarItems;
