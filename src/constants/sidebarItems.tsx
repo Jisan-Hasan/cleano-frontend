@@ -120,9 +120,47 @@ export const sidebarItems = (role: string) => {
             key: `/${role}/my-cart`,
         },
         {
-            label: <Link href="/">Hello</Link>,
-            icon: <TableOutlined />,
-            key: `/`,
+            label: "My Orders",
+            key: "booking",
+            icon: <AppstoreOutlined />,
+            children: [
+                {
+                    label: (
+                        <Link href={`/${role}/booking/pending`}>
+                            Pending
+                        </Link>
+                    ),
+                    key: `/${role}/booking/pending`,
+                    icon: <TableOutlined />,
+                },
+                {
+                    label: (
+                        <Link href={`/${role}/booking/confirmed`}>
+                            Confirmed
+                        </Link>
+                    ),
+                    key: `/${role}/booking/confirmed`,
+                    icon: <TableOutlined />,
+                },
+                {
+                    label: (
+                        <Link href={`/${role}/booking/completed`}>
+                            Completed
+                        </Link>
+                    ),
+                    key: `/${role}/booking/completed`,
+                    icon: <TableOutlined />,
+                },
+                {
+                    label: (
+                        <Link href={`/${role}/booking/cancelled`}>
+                            Cancelled
+                        </Link>
+                    ),
+                    key: `/${role}/booking/cancelled`,
+                    icon: <TableOutlined />,
+                },
+            ],
         },
     ];
 
