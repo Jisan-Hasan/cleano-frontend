@@ -1,9 +1,11 @@
 "use client";
 import { authKey } from "@/constants/storageKey";
+import { useAppSelector } from "@/redux/app/hooks";
 import { isLoggedIn, removeUserInfo } from "@/services/auth.service";
-import { UserOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import {
     Avatar,
+    Badge,
     Button,
     Dropdown,
     Layout,
@@ -20,6 +22,7 @@ import { useRouter } from "next/navigation";
 const { Header } = Layout;
 
 const Navbar = () => {
+    const cart = useAppSelector((state: any) => state.cart.cartItems);
     const router = useRouter();
 
     const handleLogout = () => {
@@ -46,13 +49,22 @@ const Navbar = () => {
         },
     ];
 
+    const cartItems: any = [
+        {
+            key: "22",
+            label: <Button type="text">View Cart</Button>,
+        },
+    ];
+
     const userLoggedIn = isLoggedIn() || false;
 
     return (
         <>
             <Header className="flex justify-between items-center">
                 <Link href="/home">
-                    <Title className="text-white font-bold hover:text-blue-600">Cleano</Title>
+                    <Title className="text-white font-bold hover:text-blue-600">
+                        Cleano
+                    </Title>
                 </Link>
                 <div className="hidden md:flex">
                     <Link
@@ -93,7 +105,21 @@ const Navbar = () => {
                         style={{
                             height: "100%",
                         }}
+                        className="gap-2"
                     >
+                        <Link href="/user/my-cart">
+                            <Badge
+                                count={cart?.length}
+                                className="cursor-pointer"
+                            >
+                                <Avatar
+                                    shape="circle"
+                                    size="large"
+                                    icon={<ShoppingCartOutlined />}
+                                />
+                            </Badge>
+                        </Link>
+
                         {userLoggedIn ? (
                             <Dropdown menu={{ items }}>
                                 <a>

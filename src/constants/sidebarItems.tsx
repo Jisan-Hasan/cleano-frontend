@@ -122,9 +122,9 @@ export const sidebarItems = (role: string) => {
     const userSidebarItems: MenuProps["items"] = [
         ...defaultSidebarItems,
         {
-            label: <Link href="/">Hello</Link>,
+            label: <Link href={`/${role}/my-cart`}>My Cart</Link>,
             icon: <TableOutlined />,
-            key: `/`,
+            key: `/${role}/my-cart`,
         },
         {
             label: <Link href="/">Hello</Link>,

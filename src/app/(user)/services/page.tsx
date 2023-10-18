@@ -79,12 +79,14 @@ const ServicesPage = () => {
                         </div>
                     ))}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                    {services?.map((item: any) => (
-                        <div key={item.id}>
-                            <ServiceCard service={item} />
-                        </div>
-                    ))}
+                <div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {services?.map((item: any) => (
+                            <div key={item.id}>
+                                <ServiceCard service={item} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
