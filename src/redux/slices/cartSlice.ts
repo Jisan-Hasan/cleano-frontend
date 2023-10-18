@@ -31,9 +31,9 @@ export const cartSlice = createSlice({
                 saveCartState(state);
             }
         },
-        removeFromCart: (state, action: PayloadAction<Service>) => {
+        removeFromCart: (state, action: PayloadAction<string>) => {
             state.cartItems = state.cartItems.filter(
-                (item) => item.id !== action.payload.id
+                (item) => item.id !== action.payload
             );
             saveCartState(state);
         },

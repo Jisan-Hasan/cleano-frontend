@@ -55,15 +55,8 @@ export const sidebarItems = (role: string) => {
             children: [
                 {
                     label: (
-                        <Link href={`/${role}/booking/all`}>All Bookings</Link>
-                    ),
-                    key: `/${role}/booking/all`,
-                    icon: <TableOutlined />,
-                },
-                {
-                    label: (
                         <Link href={`/${role}/booking/pending`}>
-                            Pending Bookings
+                            Pending
                         </Link>
                     ),
                     key: `/${role}/booking/pending`,
@@ -72,7 +65,7 @@ export const sidebarItems = (role: string) => {
                 {
                     label: (
                         <Link href={`/${role}/booking/confirmed`}>
-                            Confirmed Bookings
+                            Confirmed
                         </Link>
                     ),
                     key: `/${role}/booking/confirmed`,
@@ -81,7 +74,7 @@ export const sidebarItems = (role: string) => {
                 {
                     label: (
                         <Link href={`/${role}/booking/completed`}>
-                            Completed Bookings
+                            Completed
                         </Link>
                     ),
                     key: `/${role}/booking/completed`,
@@ -89,11 +82,11 @@ export const sidebarItems = (role: string) => {
                 },
                 {
                     label: (
-                        <Link href={`/${role}/booking/rejected`}>
-                            Rejected Bookings
+                        <Link href={`/${role}/booking/cancelled`}>
+                            Cancelled
                         </Link>
                     ),
-                    key: `/${role}/booking/rejected`,
+                    key: `/${role}/booking/cancelled`,
                     icon: <TableOutlined />,
                 },
             ],

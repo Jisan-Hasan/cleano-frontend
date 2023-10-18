@@ -7,6 +7,8 @@ import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import { useCreateBookingMutation } from "@/redux/api/bookingApi";
 import { useGetUserQuery } from "@/redux/api/userApi";
+import { useAppDispatch } from "@/redux/app/hooks";
+import { removeFromCart } from "@/redux/slices/cartSlice";
 import { createBookingSchema } from "@/schemas/booking";
 import { getUserInfo } from "@/services/auth.service";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,6 +19,7 @@ type IDProps = {
 };
 
 const BookingPage = ({ params }: IDProps) => {
+    const dispatch = useAppDispatch();
     const [createBooking] = useCreateBookingMutation();
     const { role, email } = getUserInfo() as any;
     const { id } = params;
@@ -50,6 +53,7 @@ const BookingPage = ({ params }: IDProps) => {
         try {
             message.loading("Booking...");
             await createBooking(bookingData).unwrap();
+            dispatch(removeFromCart(id));
             message.success("Booking Successful");
         } catch (error: any) {
             message.error(error?.message || "Something went wrong");
