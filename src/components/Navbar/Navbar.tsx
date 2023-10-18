@@ -7,7 +7,6 @@ import {
     Button,
     Dropdown,
     Layout,
-    Menu,
     MenuProps,
     Row,
     Space,
@@ -15,6 +14,7 @@ import {
 } from "antd";
 import Title from "antd/es/typography/Title";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const { Header } = Layout;
@@ -28,6 +28,14 @@ const Navbar = () => {
         router.push("/login");
     };
     const items: MenuProps["items"] = [
+        {
+            key: "1",
+            label: (
+                <Button onClick={() => router.push("/user")} type="text">
+                    Profile
+                </Button>
+            ),
+        },
         {
             key: "0",
             label: (
@@ -43,13 +51,41 @@ const Navbar = () => {
     return (
         <>
             <Header className="flex justify-between items-center">
-                <Title className="text-white">Cleano</Title>
-                <Menu theme="dark" mode="horizontal" className="hidden md:flex">
-                    <Menu.Item key="1">Services</Menu.Item>
-                    <Menu.Item key="2">Blogs</Menu.Item>
-                    <Menu.Item key="3">FAQS</Menu.Item>
-                    <Menu.Item key="4">About Us</Menu.Item>
-                </Menu>
+                <Link href="/home">
+                    <Title className="text-white font-bold hover:text-blue-600">Cleano</Title>
+                </Link>
+                <div className="hidden md:flex">
+                    <Link
+                        href="/home"
+                        className="text-white font-semibold hover:bg-blue-500 px-5"
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        href="/services"
+                        className="text-white font-semibold hover:bg-blue-500 px-5"
+                    >
+                        Services
+                    </Link>
+                    <Link
+                        href="/blogs"
+                        className="text-white font-semibold hover:bg-blue-500 px-5"
+                    >
+                        Blogs
+                    </Link>
+                    <Link
+                        href="/faqs"
+                        className="text-white font-semibold hover:bg-blue-500 px-5"
+                    >
+                        Faqs
+                    </Link>
+                    <Link
+                        href="/about-us"
+                        className="text-white font-semibold hover:bg-blue-500 px-5"
+                    >
+                        About Us
+                    </Link>
+                </div>
                 <div>
                     <Row
                         justify="end"

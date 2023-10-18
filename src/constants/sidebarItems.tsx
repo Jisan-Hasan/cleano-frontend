@@ -119,8 +119,23 @@ export const sidebarItems = (role: string) => {
         },
     ];
 
+    const userSidebarItems: MenuProps["items"] = [
+        ...defaultSidebarItems,
+        {
+            label: <Link href="/">Hello</Link>,
+            icon: <TableOutlined />,
+            key: `/`,
+        },
+        {
+            label: <Link href="/">Hello</Link>,
+            icon: <TableOutlined />,
+            key: `/`,
+        },
+    ];
+
     if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
     else if (role === USER_ROLE.ADMIN) return adminSidebarItems;
+    else if (role === USER_ROLE.USER) return userSidebarItems;
     else {
         return defaultSidebarItems;
     }
