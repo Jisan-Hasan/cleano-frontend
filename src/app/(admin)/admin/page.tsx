@@ -13,7 +13,6 @@ const AdminPage = () => {
     const { role, email } = getUserInfo() as any;
 
     const { data: userInfo } = useGetUserQuery(email);
-    console.log(userInfo);
 
     const onSubmit = async (data: any) => {
         message.loading("Updating...");
