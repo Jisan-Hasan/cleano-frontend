@@ -7,12 +7,13 @@ import { storeUserInfo } from "@/services/auth.service";
 import { decodedToken } from "@/utils/jwt";
 import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 import loginImage from "../../../assets/login-banner.png";
 
 type FormValues = {
-    id: string;
+    email: string;
     password: string;
 };
 
@@ -84,6 +85,10 @@ const LoginPage = () => {
                         <Button type="primary" htmlType="submit">
                             Login
                         </Button>
+                        <p className="mt-2">
+                            Don't Have any account?{" "}
+                            <Link href="/signup">SignUp</Link>
+                        </p>
                     </Form>
                 </div>
             </Col>
