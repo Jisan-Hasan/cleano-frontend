@@ -1,7 +1,11 @@
 "use client";
 import { authKey } from "@/constants/storageKey";
 import { useAppSelector } from "@/redux/app/hooks";
-import { isLoggedIn, removeUserInfo } from "@/services/auth.service";
+import {
+    getUserInfo,
+    isLoggedIn,
+    removeUserInfo,
+} from "@/services/auth.service";
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import {
     Avatar,
@@ -58,6 +62,8 @@ const Navbar = () => {
 
     const userLoggedIn = isLoggedIn() || false;
 
+    const { role } = getUserInfo() as any;
+
     return (
         <>
             <Header className="flex justify-between items-center">
@@ -66,7 +72,13 @@ const Navbar = () => {
                         Cleano
                     </Title>
                 </Link>
-                <div className="hidden md:flex">
+                <div
+                    className={`hidden  ${
+                        role === "admin" || role === "super_admin"
+                            ? "md:hidden"
+                            : "md:flex"
+                    }`}
+                >
                     <Link
                         href="/home"
                         className="text-white font-semibold hover:bg-blue-500 px-5"
@@ -107,7 +119,14 @@ const Navbar = () => {
                         }}
                         className="gap-2"
                     >
-                        <Link href="/user/my-cart">
+                        <Link
+                            href="/user/my-cart"
+                            className={`${
+                                role === "admin" || role === "super_admin"
+                                    ? "md:hidden"
+                                    : "md:flex"
+                            }`}
+                        >
                             <Badge
                                 count={cart?.length}
                                 className="cursor-pointer"
