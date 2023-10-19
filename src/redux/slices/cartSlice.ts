@@ -12,7 +12,7 @@ export interface CartState {
 
 // Load cart state from localStorage or use the initialState if it's not found
 const loadCartState = () => {
-    const storedState = localStorage.getItem("cartState") || undefined;
+    const storedState = localStorage.getItem("cartState");
     return storedState ? JSON.parse(storedState) : { cartItems: [] };
 };
 
