@@ -101,6 +101,11 @@ export const sidebarItems = (role: string) => {
             icon: <TableOutlined />,
             key: `/${role}/faq`,
         },
+        {
+            label: <Link href={`/${role}/review`}>Review</Link>,
+            icon: <TableOutlined />,
+            key: `/${role}/review`,
+        },
     ];
 
     const superAdminSidebarItems: MenuProps["items"] = [

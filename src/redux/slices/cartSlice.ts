@@ -6,17 +6,17 @@ export interface Service {
     price: number;
 }
 
-export interface CounterState {
+export interface CartState {
     cartItems: Service[];
 }
 
 // Load cart state from localStorage or use the initialState if it's not found
 const loadCartState = () => {
-    const storedState = localStorage.getItem("cartState");
+    const storedState = localStorage.getItem("cartState") || undefined;
     return storedState ? JSON.parse(storedState) : { cartItems: [] };
 };
 
-const initialState: CounterState = loadCartState();
+const initialState: CartState = loadCartState();
 
 export const cartSlice = createSlice({
     name: "cart",
@@ -46,6 +46,6 @@ export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
 // Save the cart state to localStorage
-const saveCartState = (state: CounterState) => {
+const saveCartState = (state: CartState) => {
     localStorage.setItem("cartState", JSON.stringify(state));
 };
