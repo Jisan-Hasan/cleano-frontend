@@ -58,7 +58,7 @@ const ServicesPage = () => {
                 />
             </div>
             <div className="flex gap-2">
-                <div className="max-w-[450px] bg-amber-300">
+                <div className="max-w-[450px] bg-[#E9EDF2]">
                     <div
                         className="hover:bg-green-900 px-10 py-5"
                         onClick={() => setCategory("")}

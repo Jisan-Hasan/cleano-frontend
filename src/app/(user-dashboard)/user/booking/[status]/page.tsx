@@ -4,6 +4,7 @@ import ActionBar from "@/components/ui/ActionBar";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import UMTable from "@/components/ui/UMTable";
 import { useGetBookingsQuery } from "@/redux/api/bookingApi";
+import { useGetUserQuery } from "@/redux/api/userApi";
 import { useDebounced } from "@/redux/app/hooks";
 import { getUserInfo } from "@/services/auth.service";
 import { ReloadOutlined } from "@ant-design/icons";
@@ -38,8 +39,12 @@ const BookingPage = ({ params }: { params: { status: string } }) => {
     }
     const { data, isLoading } = useGetBookingsQuery({ ...query });
 
+    const { role, email } = getUserInfo() as any;
+    const { data: userData } = useGetUserQuery(email);
+
     const bookings = (data as Record<string, any>)?.bookings?.filter(
-        (bookingItem: any) => bookingItem.status === status
+        (bookingItem: any) =>
+            bookingItem.status === status && bookingItem.userId === userData?.id
     );
     const meta = (data as Record<string, any>)?.meta;
 
@@ -97,7 +102,6 @@ const BookingPage = ({ params }: { params: { status: string } }) => {
         setSearchTerm("");
     };
 
-    const { role } = getUserInfo() as any;
     return (
         <div>
             <UMBreadCrumb

@@ -256,12 +256,7 @@ const Footer = () => {
             {/* <!--Copyright section--> */}
             <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
                 <span>© 2023 Copyright:</span>
-                <a
-                    className="font-semibold text-neutral-600 dark:text-neutral-400"
-                    href="https://tailwind-elements.com/"
-                >
-                    Tailwind Elements
-                </a>
+                Jisan Hasan
             </div>
         </footer>
     );

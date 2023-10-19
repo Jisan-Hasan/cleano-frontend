@@ -86,7 +86,7 @@ const LoginPage = () => {
                             Login
                         </Button>
                         <p className="mt-2">
-                            Don't Have any account?{" "}
+                            Dont Have any account?
                             <Link href="/signup">SignUp</Link>
                         </p>
                     </Form>
