@@ -1,7 +1,15 @@
+"use client";
+
+import Hero from "@/components/ui/Hero";
+
 const HomePage = () => {
-    return <div>
-        <h1>This is homepage</h1>
-    </div>;
+    return (
+        <div>
+            <div>
+                <Hero />
+            </div>
+        </div>
+    );
 };
 
 export default HomePage;
